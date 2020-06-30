@@ -1,0 +1,36 @@
+---
+- name: Installs a package and prints the result
+  hosts: all
+  tasks:
+    - name: Install the package
+      yum:
+        name: httpd
+        state: installed
+      register: install_result
+
+	- debug: var=install_result
+  
+  ## Sample output
+   ## [uder@demo ~]$ ansible-playbook playbook.yml
+  ##PLAY [Installs a package and prints the result] ****************************
+
+  ##TASK [setup] ***************************************************************
+  ##ok: [demo.example.com]
+
+  ##TASK [Install the package] *************************************************
+  ##ok: [demo.example.com]
+
+  ##TASK [debug] ***************************************************************
+  ##ok: [demo.example.com] => {
+   ##   "install_result": {
+   ##       "changed": false,
+    ##      "msg": "",
+    ##      "rc": 0,
+     ##     "results": [
+     ##         "httpd-2.4.6-40.el7.x86_64 providing httpd is already installed"
+     ##     ]
+    ##  }
+  ##}
+
+  ##PLAY RECAP *****************************************************************
+  ## demo.example.com : ok=3 changed=0 unreachable=0 failed=0
