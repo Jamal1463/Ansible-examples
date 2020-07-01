@@ -1,9 +1,0 @@
----
-# tasks file for setup-part4
-- name: Copy files
-  copy:
-    src: "{{ item }}"
-    dest: "/home/devops/ansible_implementation/{{ item }}"
-  loop:
-    - motd.j2
-    - motd.yml

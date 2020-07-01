@@ -1,8 +1,0 @@
-- name: Verify the Apache service
-  hosts: localhost
-  tasks:
-    - name: Ensure the webserver is reachable
-      uri:
-        url: http://app1.${GUID}.internal
-        status_code: 200
- # In this task, check for a status code of 200 to confirm that the server is running and configured properly.

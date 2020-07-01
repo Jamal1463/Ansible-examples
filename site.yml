@@ -1,0 +1,18 @@
+---
+- name: Installing webservers , db and load balncer through ansible-roles
+  hosts: webservers
+  become: yes
+  roles: 
+   - app-tier
+
+- hosts: db
+  become: yes
+  roles: 
+   - db-tier
+
+- hosts: lb
+  become: yes
+  roles:
+   - lb-tier
+
+...
